@@ -218,5 +218,6 @@ input[type="text"] {
 
   input[type="text"] {
     font-size: 14px;
+     width: 90%; 
   }
 }
