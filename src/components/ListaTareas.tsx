@@ -1,7 +1,7 @@
 import {Tarea} from './Tarea'
 
 type ListaTareas = {
-    listaTareas: {
+ listaTareas: {
     texto: string;
     completada: boolean;
   }[];
@@ -9,12 +9,17 @@ type ListaTareas = {
   toggleCompletada: (index: number) => void;
 }
 
-export const ListaTareas = ({listaTareas,borrarTarea }: ListaTareas) => {
+export const ListaTareas = ({listaTareas, borrarTarea, toggleCompletada }: ListaTareas) => {
   return (
     <div className="taskList">
       {
         listaTareas.map((listaTareas, index) => (
-           <Tarea key={index} tarea={listaTareas} borrarTarea={() => borrarTarea(index)} toggleCompletada={() => toggleCompletada(index)}></Tarea>
+           <Tarea 
+            key={index}
+            tarea={listaTareas} 
+            borrarTarea={() => borrarTarea(index)} 
+            toggleCompletada={() => toggleCompletada(index)}/>
+          
         )
       )}
     </div>
