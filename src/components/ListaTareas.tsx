@@ -1,6 +1,6 @@
 import {Tarea} from './Tarea'
 
-type ListaTareas = {
+type ListaTareasProps = {
  listaTareas: {
     texto: string;
     completada: boolean;
@@ -9,7 +9,7 @@ type ListaTareas = {
   toggleCompletada: (index: number) => void;
 }
 
-export const ListaTareas = ({listaTareas, borrarTarea, toggleCompletada }: ListaTareas) => {
+export const ListaTareas = ({listaTareas, borrarTarea, toggleCompletada }: ListaTareasProps) => {
   return (
     <div className="taskList">
       {
