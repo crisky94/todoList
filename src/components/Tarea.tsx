@@ -1,4 +1,4 @@
-type Tarea = {
+type TareaProps = {
   tarea: {
     texto: string;
     completada: boolean;
@@ -7,7 +7,7 @@ type Tarea = {
   borrarTarea: () => void;
 }
 
-export const Tarea = ({tarea, borrarTarea, completada, toggleCompletada}: Tarea ) => {
+export const Tarea = ({tarea, borrarTarea, toggleCompletada}: TareaProps ) => {
 
   return (
     <div className="task">
@@ -17,7 +17,9 @@ export const Tarea = ({tarea, borrarTarea, completada, toggleCompletada}: Tarea 
           onChange={toggleCompletada} 
         />
       <span className="checkmark"></span>
-      <span className="{`task-text ${completada ? 'completed' : ''}`}">{tarea}</span>
+        <span className={`task-text ${tarea.completada ? 'completed' : ''}`}>
+          {tarea.texto}
+        </span>
     </label>
       <button className="delete-btn" onClick={borrarTarea}>Borrar</button>
     </div>
