@@ -1,9 +1,20 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ListaTareas } from "./ListaTareas";
 
 export const TodoApp = () => {
 const [nuevaTarea, setNuevaTarea] = useState<string>('');
 const [listaTareas, setListaTareas] = useState<string[]>([])
+
+  useEffect(() => {
+    const tareasGuardadas = localStorage.getItem('tareas');
+    if (tareasGuardadas) {
+      setListaTareas(JSON.parse(tareasGuardadas));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('tareas', JSON.stringify(listaTareas));
+  }, [listaTareas]);
 
 const handleAddTask = () => {
 if(nuevaTarea.trim() === '') return
