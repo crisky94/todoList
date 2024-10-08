@@ -1,8 +1,10 @@
 type Tarea = {
-  tarea: string
-  completada: boolean;
-  borrarTarea: () => void
-  toggleCompletada: () => void; 
+  tarea: {
+    texto: string;
+    completada: boolean;
+  };
+  toggleCompletada: () => void;
+  borrarTarea: () => void;
 }
 
 export const Tarea = ({tarea, borrarTarea, completada, toggleCompletada}: Tarea ) => {
@@ -11,7 +13,7 @@ export const Tarea = ({tarea, borrarTarea, completada, toggleCompletada}: Tarea 
     <div className="task">
       <label className="custom-checkbox">
       <input type="checkbox"
-          checked={completada} 
+          checked={tarea.completada}
           onChange={toggleCompletada} 
         />
       <span className="checkmark"></span>
