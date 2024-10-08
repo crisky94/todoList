@@ -62,21 +62,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* @media (prefers-color-scheme: light) {
-    :root {
-      color: #213547;
-      background-color: #ffffff;
-    }
-  
-    a:hover {
-      color: #747bff;
-    }
-  
-    button {
-      background-color: #f9f9f9;
-    }
-  }
-   */
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
@@ -100,10 +85,6 @@ input[type="text"] {
   padding: 10px;
   font-size: 16px;
   margin-bottom: 10px;
-}
-
-input[type="text"]:focus {
- 
 }
 
 .flex {
@@ -152,4 +133,108 @@ input[type="text"]:focus {
 
 h1 {
   margin-bottom: 20px;
+}
+
+/* Estilos del checkbox personalizado */
+.custom-checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  user-select: none;
+  width: 100%;
+}
+
+.custom-checkbox input {
+  display: none;
+  /* Ocultar el checkbox predeterminado */
+}
+
+.custom-checkbox .checkmark {
+  width: 20px;
+  height: 20px;
+  background-color: #eee;
+  border-radius: 4px;
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+  transition: background-color 0.3s;
+  border: 2px solid #ccc;
+}
+
+.custom-checkbox input:checked+.checkmark {
+  background-color: #4CAF50;
+  /* Color de fondo cuando está seleccionado */
+  border-color: #4CAF50;
+}
+
+.custom-checkbox .checkmark::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.custom-checkbox input:checked+.checkmark::after {
+  opacity: 1;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.task-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.task-list li:hover {
+  background-color: #f9f9f9;
+}
+
+.task-text {
+  flex-grow: 1;
+  transition: text-decoration 0.3s, color 0.3s;
+}
+
+/* Tachado del texto cuando se selecciona el checkbox */
+.custom-checkbox input:checked+.checkmark+.task-text {
+  text-decoration: line-through;
+  color: #999;
+  /* Cambia el color del texto cuando está completado */
+}
+
+/* Botón de borrar estilo */
+.delete-btn {
+  background-color: transparent;
+  border: none;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s;
+  padding: 0 8px;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+.delete-btn:focus {
+  outline: none;
 }
